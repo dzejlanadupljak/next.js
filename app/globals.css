@@ -1,28 +1,126 @@
-/* globals.css */
-
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-}
+/* ===== Home Page Styles ===== */
 
 .containerMystic {
-  max-width: 48rem; /* isto kao 4xl */
-  margin: 0 auto;
-  padding: 2rem;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  text-align: center;
+
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf5);
 }
 
 .titleAurora {
-  font-size: 2.5rem; /* prilagođeno */
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #1a202c; /* tamno siva */
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+
+  background: linear-gradient(90deg, #6366f1, #9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .textLumos {
-  font-size: 1.125rem; /* text-lg */
-  color: #4a5568; /* siva */
-  line-height: 1.75rem;
+  max-width: 600px;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #4b5563;
 }
+/* ===== About Page Styles ===== */
+
+.aboutRealm {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2.5rem 2rem;
+
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.aboutTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+
+  background: linear-gradient(90deg, #6366f1, #9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.aboutText {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #4b5563;
+}
+
+
+/* Responsive */
+@media (min-width: 768px) {
+  .blogGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .blogGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== Header ===== */
+.siteHeader {
+  background: linear-gradient(90deg, #6366f1, #9333ea);
+  padding: 1rem 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.headerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: white;
+}
+
+.navLinks a {
+  margin-left: 1.5rem;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.navLinks a:hover {
+  color: #fde68a; /* blago žuta */
+}
+
+/* ===== Footer ===== */
+.siteFooter {
+  background-color: #111827;
+  color: #d1d5db;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+}
+
+.siteFooter a {
+  color: #6366f1;
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.siteFooter a:hover {
+  color: #9333ea;
+}
+

@@ -1,4 +1,6 @@
+import Link from "next/link";
 interface Post {
+
     id: number;
     title: string;
     excerpt: string;
@@ -13,29 +15,39 @@ const posts: Post[] = [
 ];
 
 interface BlogPageProps {
-    params: Promise<{ id: string }>; // promise
+    params: Promise<{ id: string }>; // promise znaci da cemo cekati da se podaci ucitaju
 }
 
 // FUNKCIJA MORA BITI ASYNC AKO KORISTIMO AWAIT
-export default async function BlogPostPage({ params }: BlogPageProps) {
+export default async function BlogPostPage({ params }: BlogPageProps) { ///async funkcija omogucava da cekamo podatke a da ne blokiramo izvrsavanje stranice
     const { id } = await params;  // čekamo da promise bude rešen
     const postId = parseInt(id);
     const post = posts.find((p) => p.id === postId);
 
-    if (!post) {
-        return (
-            <div>
-                <h1>Članak nije pronađen</h1>
-            </div>
-        );
-    }
-
+if (!post) {
     return (
         <div>
-            <h1>{post.title}</h1>
-            <p>{post.excerpt}</p>
-            <p>Autor: {post.author}</p>
-            <p>Datum: {post.date}</p>
+            <h1>Članak nije pronađen</h1>
         </div>
     );
 }
+const prevId = posts.find((p) => p.id === postId - 1);
+const nextId = posts.find((p) => p.id === postId + 1);
+
+return (
+    <div>
+        <Link href="/blog">← Nazad na blog</Link>
+        <h1>{post.title}</h1>
+        <p>{post.excerpt}</p>
+        <p>Autor: {post.author}</p>
+        <p>Datum: {post.date}</p>
+        <div>
+            {prevId && <Link href={`/blog/${prevId.id}`}>← Prethodni članak</Link>}
+            
+            {nextId && <Link href={`/blog/${nextId.id}`}>Sledeći članak →</Link>}
+        </div>
+    </div>
+);
+}
+
+

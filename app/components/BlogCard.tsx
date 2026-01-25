@@ -7,6 +7,7 @@ interface BlogCardProps {  ///interface opisuje koje podatke
     excerpt: string;
     author: string;
     date: string;
+  
 }
 
 export default function BlogCard({id, title, excerpt, author, date }: BlogCardProps) {
@@ -18,6 +19,7 @@ export default function BlogCard({id, title, excerpt, author, date }: BlogCardPr
         <div className="blog-card-footer">
             <span className="blog-card-author">By {author}</span>
             <span className="blog-card-date">{date}</span>
+
         </div>
     </div>
 </Link>

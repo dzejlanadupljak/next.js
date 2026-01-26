@@ -1,4 +1,5 @@
 import BlogCard from "../components/BlogCard";
+import Link from "next/link";
 
 interface ApiPost {
   userId: number;
@@ -16,7 +17,6 @@ interface BlogPost {
 }
 
 export default async function BlogPage() {
-  // Fetch posts from API
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
 
   if (!res.ok) {
@@ -56,10 +56,12 @@ export default async function BlogPage() {
         <h1 className="text-2xl font-bold mb-4">Postovi sa API-ja</h1>
 
         {data.slice(0, 10).map((post) => (
-          <div key={post.id} className="mb-4">
-            <h2 className="font-semibold">{post.title}</h2>
-            <p>{post.body}</p>
-          </div>
+          <Link key={post.id} href={`/blog/${post.id}`}>
+            <div className="mb-4 cursor-pointer hover:underline">
+              <h2 className="font-semibold">{post.title}</h2>
+              <p>{post.body.slice(0, 100)}...</p>
+            </div>
+          </Link>
         ))}
       </div>
 
